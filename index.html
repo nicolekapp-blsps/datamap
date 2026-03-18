@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0043)https://nicolekapp-blsps.github.io/datamap/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>School Data Map – Term 1</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="./School Data Map – Term 1_files/css2" rel="stylesheet">
 <style>
   :root {
     --yellow: #FFD700;
@@ -95,37 +95,6 @@
     display: none;
   }
   .btn-save:hover { background: #2e7d32; }
-
-  /* Floating save button — always visible when in edit mode */
-  .floating-save {
-    display: none;
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    z-index: 999;
-    background: #388E3C;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    padding: 14px 26px;
-    font-family: var(--font);
-    font-weight: 800;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(56,142,60,0.5);
-    transition: all 0.18s;
-    animation: pulse-green 2s infinite;
-  }
-  .floating-save:hover {
-    background: #2e7d32;
-    transform: scale(1.05);
-    box-shadow: 0 6px 28px rgba(56,142,60,0.6);
-  }
-  @keyframes pulse-green {
-    0%, 100% { box-shadow: 0 4px 20px rgba(56,142,60,0.5); }
-    50% { box-shadow: 0 4px 32px rgba(56,142,60,0.85); }
-  }
-  body.edit-mode .floating-save { display: block; }
 
   .btn-cancel {
     background: #eee;
@@ -364,59 +333,9 @@
     margin-top: 12px;
     text-align: center;
   }
-
-  /* Password Modal */
-  .pw-modal-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-  }
-  .pw-modal-overlay.active { display: flex; }
-  .pw-modal {
-    background: white;
-    border-radius: 14px;
-    padding: 32px 28px 24px;
-    width: 360px;
-    max-width: 95vw;
-    box-shadow: 0 12px 48px rgba(0,0,0,0.25);
-    font-family: var(--font);
-    text-align: center;
-  }
-  .pw-modal h2 { font-size: 1.2rem; font-weight: 800; color: #1a237e; margin-bottom: 6px; }
-  .pw-modal p { font-size: 0.82rem; color: #777; margin-bottom: 18px; }
-  .pw-modal input {
-    width: 100%;
-    padding: 10px 14px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    font-family: var(--font);
-    font-size: 1rem;
-    text-align: center;
-    letter-spacing: 2px;
-    outline: none;
-    transition: border-color 0.15s;
-    margin-bottom: 10px;
-  }
-  .pw-modal input:focus { border-color: #1565C0; }
-  .pw-modal .pw-error {
-    color: #e53935;
-    font-size: 0.8rem;
-    margin-bottom: 10px;
-    display: none;
-    font-weight: 700;
-  }
-  .pw-modal .pw-actions { display: flex; gap: 10px; justify-content: center; margin-top: 8px; }
-  .pw-modal .btn-pw-ok { background: #1565C0; color: white; min-width: 100px; }
-  .pw-modal .btn-pw-ok:hover { background: #0d47a1; }
-  .pw-modal .btn-pw-cancel { background: #eee; color: #333; min-width: 80px; }
-
 </style>
 </head>
-<body>
+<body class="edit-mode">
 
 <header>
   <div class="header-left">
@@ -430,7 +349,7 @@
     <div class="edit-notice" id="editNotice">✏️ <strong>Edit Mode ON</strong> — Click any cell to edit its text, link, or colour.</div>
     <button class="btn btn-cancel" id="btnCancel" onclick="cancelEdit()">✕ Cancel</button>
     <button class="btn btn-save" id="btnSave" onclick="saveData()">💾 Save Changes</button>
-    <button class="btn btn-edit" id="btnEdit" onclick="toggleEditMode()">✏️ Edit Mode</button>
+    <button class="btn btn-edit" id="btnEdit" onclick="toggleEditMode()" style="display: none;">✏️ Edit Mode</button>
   </div>
 </header>
 
@@ -444,20 +363,18 @@
         <th>Week 9</th><th>Week 10</th>
       </tr>
     </thead>
-    <tbody id="tableBody">
-      <!-- Rows injected by JS -->
-    </tbody>
+    <tbody id="tableBody"><tr><td class="row-label cat-external">External Assessments</td><td class="data-cell" data-row="0" data-col="0"></td><td class="data-cell" data-row="0" data-col="1"></td><td class="data-cell" data-row="0" data-col="2"></td><td class="data-cell event-cell ev-yellow" data-row="0" data-col="3">Best Start</td><td class="data-cell" data-row="0" data-col="4"></td><td class="data-cell" data-row="0" data-col="5"></td><td class="data-cell event-cell ev-yellow" data-row="0" data-col="6">NAPLAN</td><td class="data-cell" data-row="0" data-col="7"></td><td class="data-cell" data-row="0" data-col="8"></td><td class="data-cell" data-row="0" data-col="9"></td></tr><tr><td class="row-label cat-data">Data Analysis &amp; Planning</td><td class="data-cell" data-row="1" data-col="0"></td><td class="data-cell" data-row="1" data-col="1"></td><td class="data-cell" data-row="1" data-col="2"></td><td class="data-cell" data-row="1" data-col="3"></td><td class="data-cell event-cell ev-red" data-row="1" data-col="4">Data Talks</td><td class="data-cell" data-row="1" data-col="5"></td><td class="data-cell" data-row="1" data-col="6"></td><td class="data-cell" data-row="1" data-col="7"></td><td class="data-cell event-cell ev-red" data-row="1" data-col="8">Data Talks</td><td class="data-cell" data-row="1" data-col="9"></td></tr><tr><td class="row-label cat-plasp">PLASPs</td><td class="data-cell" data-row="2" data-col="0"></td><td class="data-cell" data-row="2" data-col="1"></td><td class="data-cell" data-row="2" data-col="2"></td><td class="data-cell event-cell ev-light-green" data-row="2" data-col="3">Gather information</td><td class="data-cell event-cell ev-light-green" data-row="2" data-col="4">Discuss with Stage Team leader</td><td class="data-cell event-cell ev-light-green" data-row="2" data-col="5">PLASPs complete in Sentral &amp; Parent Meetings</td><td class="data-cell event-cell ev-light-green" data-row="2" data-col="6">Parent Meetings</td><td class="data-cell event-cell ev-light-green" data-row="2" data-col="7">PLASPs monitored at LST</td><td class="data-cell" data-row="2" data-col="8"></td><td class="data-cell" data-row="2" data-col="9"></td></tr><tr><td class="row-label cat-teaching">Teaching and Learning Programs</td><td class="data-cell" data-row="3" data-col="0"></td><td class="data-cell" data-row="3" data-col="1"></td><td class="data-cell" data-row="3" data-col="2"></td><td class="data-cell" data-row="3" data-col="3"></td><td class="data-cell" data-row="3" data-col="4"></td><td class="data-cell" data-row="3" data-col="5"></td><td class="data-cell" data-row="3" data-col="6"></td><td class="data-cell" data-row="3" data-col="7"></td><td class="data-cell event-cell ev-blue" data-row="3" data-col="8"></td><td class="data-cell event-cell ev-blue" data-row="3" data-col="9"></td></tr><tr><td class="row-label cat-stage">ES1</td><td class="data-cell" data-row="4" data-col="0"></td><td class="data-cell event-cell ev-blue-light" data-row="4" data-col="1">InitiaLit Screener</td><td class="data-cell" data-row="4" data-col="2"></td><td class="data-cell" data-row="4" data-col="3"></td><td class="data-cell" data-row="4" data-col="4"></td><td class="data-cell" data-row="4" data-col="5"></td><td class="data-cell" data-row="4" data-col="6"></td><td class="data-cell" data-row="4" data-col="7"></td><td class="data-cell event-cell ev-blue-light" data-row="4" data-col="8">Collaborative Planning</td><td class="data-cell" data-row="4" data-col="9"></td></tr><tr><td class="row-label cat-stage">Stage 1</td><td class="data-cell" data-row="5" data-col="0"></td><td class="data-cell event-cell ev-blue-light" data-row="5" data-col="1">InitiaLit Screener<br>EA CG English<br>EA CG Maths x 3</td><td class="data-cell event-cell ev-blue-light" data-row="5" data-col="2">Baseline Writing Sample</td><td class="data-cell" data-row="5" data-col="3"></td><td class="data-cell" data-row="5" data-col="4"></td><td class="data-cell" data-row="5" data-col="5"></td><td class="data-cell event-cell ev-outline" data-row="5" data-col="6"></td><td class="data-cell" data-row="5" data-col="7"></td><td class="data-cell event-cell ev-blue-light" data-row="5" data-col="8">Collaborative Planning<span class="event-link-icon">🔗</span></td><td class="data-cell" data-row="5" data-col="9"></td></tr><tr><td class="row-label cat-stage">Stage 2</td><td class="data-cell" data-row="6" data-col="0"></td><td class="data-cell event-cell ev-blue-light" data-row="6" data-col="1">SpellEx Screener<br>EA CG English<br>EA CG Maths x 3</td><td class="data-cell event-cell ev-blue-light" data-row="6" data-col="2">Baseline Writing Sample</td><td class="data-cell" data-row="6" data-col="3"></td><td class="data-cell" data-row="6" data-col="4"></td><td class="data-cell" data-row="6" data-col="5"></td><td class="data-cell" data-row="6" data-col="6"></td><td class="data-cell" data-row="6" data-col="7"></td><td class="data-cell event-cell ev-blue-light" data-row="6" data-col="8">Collaborative Planning</td><td class="data-cell" data-row="6" data-col="9"></td></tr><tr><td class="row-label cat-stage">Stage 3</td><td class="data-cell" data-row="7" data-col="0"></td><td class="data-cell event-cell ev-blue-light" data-row="7" data-col="1">EA CG English<br>EA CG Maths x 3</td><td class="data-cell event-cell ev-blue-light" data-row="7" data-col="2">Baseline Writing Sample</td><td class="data-cell" data-row="7" data-col="3"></td><td class="data-cell" data-row="7" data-col="4"></td><td class="data-cell" data-row="7" data-col="5"></td><td class="data-cell" data-row="7" data-col="6"></td><td class="data-cell" data-row="7" data-col="7"></td><td class="data-cell event-cell ev-blue-light" data-row="7" data-col="8">Collaborative Planning</td><td class="data-cell" data-row="7" data-col="9"></td></tr><tr><td class="row-label cat-stage">EAL/D &amp; LaST</td><td class="data-cell" data-row="8" data-col="0"></td><td class="data-cell" data-row="8" data-col="1"></td><td class="data-cell event-cell ev-blue-light" data-row="8" data-col="2">Baseline Writing Sample</td><td class="data-cell" data-row="8" data-col="3"></td><td class="data-cell" data-row="8" data-col="4"></td><td class="data-cell" data-row="8" data-col="5"></td><td class="data-cell" data-row="8" data-col="6"></td><td class="data-cell" data-row="8" data-col="7"></td><td class="data-cell event-cell ev-blue-light" data-row="8" data-col="8">Collaborative Planning</td><td class="data-cell" data-row="8" data-col="9"></td></tr><tr><td class="row-label cat-sep">SEP</td><td class="data-cell" data-row="9" data-col="0"></td><td class="data-cell" data-row="9" data-col="1"></td><td class="data-cell" data-row="9" data-col="2"></td><td class="data-cell" data-row="9" data-col="3"></td><td class="data-cell" data-row="9" data-col="4"></td><td class="data-cell" data-row="9" data-col="5"></td><td class="data-cell event-cell ev-purple" data-row="9" data-col="6">SD teams</td><td class="data-cell event-cell ev-purple" data-row="9" data-col="7"></td><td class="data-cell event-cell ev-purple" data-row="9" data-col="8"></td><td class="data-cell event-cell ev-purple" data-row="9" data-col="9"></td></tr><tr><td class="row-label cat-reports">Reports &amp; PDPs</td><td class="data-cell" data-row="10" data-col="0"></td><td class="data-cell" data-row="10" data-col="1"></td><td class="data-cell" data-row="10" data-col="2"></td><td class="data-cell" data-row="10" data-col="3"></td><td class="data-cell" data-row="10" data-col="4"></td><td class="data-cell" data-row="10" data-col="5"></td><td class="data-cell event-cell ev-pink" data-row="10" data-col="6">PDP goals finalised</td><td class="data-cell event-cell ev-pink" data-row="10" data-col="7"></td><td class="data-cell event-cell ev-pink" data-row="10" data-col="8"></td><td class="data-cell event-cell ev-pink" data-row="10" data-col="9"></td></tr></tbody>
   </table>
 </div>
 
 <div class="legend">
   <div class="legend-item"><div class="legend-dot" style="background:#FFD700"></div> External Assessments</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#E53935"></div> Data Analysis & Planning</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#E53935"></div> Data Analysis &amp; Planning</div>
   <div class="legend-item"><div class="legend-dot" style="background:#388E3C"></div> PLASPs</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#1565C0"></div> Teaching & Learning</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#1565C0"></div> Teaching &amp; Learning</div>
   <div class="legend-item"><div class="legend-dot" style="background:#B3E5FC; border:1px solid #90CAF9"></div> Stage Groups</div>
   <div class="legend-item"><div class="legend-dot" style="background:#9C27B0"></div> SEP</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#F06292"></div> Reports & PDPs</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#F06292"></div> Reports &amp; PDPs</div>
 </div>
 <p class="tooltip-hint">🔗 Cells with a link icon open connected Drive folders. Click <strong>Edit Mode</strong> to change the schedule.</p>
 
@@ -495,7 +412,7 @@
   <span class="popup-close" onclick="closePopup()">✕</span>
   <h3 id="popupTitle"></h3>
   <p id="popupDesc"></p>
-  <a id="popupLink" href="#" target="_blank">Open in Drive →</a>
+  <a id="popupLink" href="https://nicolekapp-blsps.github.io/datamap/#" target="_blank">Open in Drive →</a>
 </div>
 
 <script>
@@ -685,27 +602,13 @@ let editMode = false;
 let editingCell = null;
 
 function toggleEditMode() {
-  // Show the password modal instead of browser prompt
-  document.getElementById('pwModalOverlay').classList.add('active');
-  setTimeout(() => document.getElementById('pwInput').focus(), 100);
-}
-
-function closePwModal() {
-  document.getElementById('pwModalOverlay').classList.remove('active');
-  document.getElementById('pwInput').value = '';
-  document.getElementById('pwError').style.display = 'none';
-}
-
-function checkPassword() {
-  const entered = document.getElementById('pwInput').value;
-  // Change "schooldata2026" below to your preferred password
+  const entered = prompt('🔒 Enter the edit password:');
+  if (entered === null) return; // cancelled
+  // Simple hash check — change "schooldata2026" below to your preferred password
   if (btoa(entered) !== btoa('schooldata2026')) {
-    document.getElementById('pwError').style.display = 'block';
-    document.getElementById('pwInput').value = '';
-    document.getElementById('pwInput').focus();
+    alert('❌ Incorrect password. View-only mode.');
     return;
   }
-  closePwModal();
   editMode = true;
   document.body.classList.add('edit-mode');
   document.getElementById('btnEdit').style.display = 'none';
@@ -838,32 +741,9 @@ document.getElementById('modalOverlay').addEventListener('click', (e) => {
   if (e.target === document.getElementById('modalOverlay')) closeModal();
 });
 
-// ─── KEYBOARD SHORTCUT ───────────────────────────────────────────────────────
-document.addEventListener('keydown', (e) => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
-    e.preventDefault();
-    if (editMode) saveData();
-  }
-});
-
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 loadSaved();
 </script>
 
-<!-- Password Modal -->
-<div class="pw-modal-overlay" id="pwModalOverlay">
-  <div class="pw-modal">
-    <h2>🔒 Edit Mode</h2>
-    <p>Enter the password to unlock editing</p>
-    <input type="password" id="pwInput" placeholder="Password" onkeydown="if(event.key==='Enter')checkPassword()">
-    <div class="pw-error" id="pwError">❌ Incorrect password. Try again.</div>
-    <div class="pw-actions">
-      <button class="btn btn-pw-cancel" onclick="closePwModal()">Cancel</button>
-      <button class="btn btn-pw-ok" onclick="checkPassword()">Unlock</button>
-    </div>
-  </div>
-</div>
 
-<button class="floating-save" onclick="saveData()">💾 Save &amp; Download (Ctrl+S)</button>
-</body>
-</html>
+</body></html>
